@@ -12,8 +12,7 @@
 
 The example figure below shows the graphic of what is web science. 
 
-![web_science.png](https://raw.githubusercontent.com/schen8180/data440/main/hw0/Web%20Image_ECS_Xlarge.jpg_SIA_JPG_fit_to_width_INLINE.jpg?token=GHSAT0AAAAAACHJXMY4VTUXP4ZYGNHPMOLGZH7QGHQ)
-
+![\web_science.png](https://github.com/schen8180/data440/blob/main/hw0/Web%20Image_ECS_Xlarge.jpg_SIA_JPG_fit_to_width_INLINE.jpg)
 
 
 *If you want to include code in your report, you can insert a screenshot (if it's legible), or you can copy/paste the code into a fenced code block.*
