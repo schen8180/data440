@@ -44,7 +44,8 @@ For the graph, list the nodes (in alphabetical order) that are each of the follo
 
 ## Answer
 
-![\label{fig:bow-tie}](https://raw.githubusercontent.com/schen8180/data440/main/hw1/SCChw1.jpg?token=GHSAT0AAAAAACHJXMY4VI3JQBCGYKMNJPFOZITJQ4Q)
+![\web_science.png](https://github.com/schen8180/data440/blob/main/hw1/SCChw1.jpg)
+
 
 
 - SCC: A, B, C, G
