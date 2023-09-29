@@ -62,14 +62,8 @@ This node served as a tube by only being connected with the in component and out
 ## Discussion
 
 
-By looking at the PowerPoint slides, reading the Piazza discussions, and doing online research for to commplete this question, I read more about the bow-tie structure of the web. I reviewed how there are three main components that make up the structure of the web graph: the SCC, or strongly connected component, a set of IN components, and a set of OUT components. 
-
-In this chart below, there are five different components that create this specifc bow-tie structure: the IN, SCC, OUT, Tube, the disconnected, and tentril components. The IN components are: P, M, O. This is because these nodes are connected to the SCC nodes.
-The SCC components are: A, B, C, G. These nodes are be reach back to each other through directed links. 
-The OUT components are D and H, where they are able to reach out to other nodes. 
-The tube is node N because that is the only node that is connected from an IN node to OUT node. 
-The disconnected nodes are the E and F nodes where they are only connected to themselves and not with the other nodes. 
-The tentrils are I, L, and K because two satisfy the two conditions of a tentril, which are the nodes reachable from IN cannot reach the SCC nodes, and the nodes that can reach out cannot be reach from the SCC nodes. 
+By looking at the PowerPoint slides, reading the Piazza discussions, and browsing the web, I learned more about the bow-tie structure of the web. My observations consisted of three main components that make up the structure of the web graph, which are the SCC, or strongly connected component, a set of IN components, and a set of OUT components. In the chart below, five different components create this specific bow-tie structure: the IN, SCC, OUT, Tube, disconnected, and tendril components. The IN components are P, M, and O. This is because these nodes are connected to the SCC nodes. The SCC components are: A, B, C, and G. These nodes can reach back to each other through directed links. The OUT components are D and H because they can reach out to other nodes. The tube is node N because that is the only node that is connected from an IN node to an OUT node. The disconnected nodes are the E and F nodes since they are only connected to themselves and not to the other nodes. 
+The tendrils are I, L, and K because these two satisfy the two conditions of a tendril, which are the nodes reachable from IN but cannot reach the SCC nodes, and the nodes that can reach out cannot be reached from the SCC nodes. 
 
 # Q2
 Demonstrate that you know how to use curl and are familiar with the available options.
@@ -138,11 +132,10 @@ Set-Cookie: GU_geo_country=US; path=/; Secure
 
 ```
 ## Discussion
-In this part of the exercise, I browsed the web and experimented with the command link to search for a way to make a single line multiple curl commands. 
-I discovered that to make curl commands on a single line, I simply need to issue the requests all together at once on a line beside the given URI in my terminal. The L command allows curl to follow redirects up to 500 times, the I command helps curl make a HEAD request. The -A option helps curl change the user agent name. In this case, the tasks are: issue a HEAD HTTP request, follow redirects, and change the user-agent to "DATA 440" for the link, https://t.co/KSHFYLmmB0
-HTTP. Thus, the curl command in the terminal would be: curl -L -I -A "DATA 440" https://t.co/KSHFYLmmB0. 
 
-
+In this part of the exercise, I browsed the web and experimented with For this part of the exercise, I browsed the web and experimented with the command link to look for a way to make single-line curl commands. 
+I discovered that to make curl commands on a single line, I need to issue the requests all together at once on a line beside the given URI. I also learned that I need the L, I, and A curl commands to complete the tasks given. The L command allows curl to follow redirects up to 500 times, whereas the I command helps curl make a HEAD request. Additionally, The -A option helps curl change the user agent name in the terminal. In this case, the tasks are: issue a HEAD HTTP request, follow redirects, and change the user-agent to "DATA 440" for the link, https://t.co/KSHFYLmmB0
+HTTP. Thus, the curl command to issue in the terminal would be curl -L -I -A "DATA 440" https://t.co/KSHFYLmmB0.
 
 # Q3
 Write a Python program to find links to PDFs in a webpage.
@@ -197,10 +190,9 @@ def get_pdf(link, org_uri):
     content_type = response.headers.get("Content-Type", "")
     is_pdf = content_type.lower().startswith("application/pdf")
     pdf_size = len(response.content) 
-    print(f"Parent URI: {org_uri}") 
+    print(f"URI: {org_uri}") 
     print(f"Final URI: {final_uri}") 
-    print(f"Is PDF: {is_pdf}")
-    print(f"PDF Size (bytes): {pdf_size}\n")
+    print(f"Content Length: {pdf_size}\n")
 def web_scraper(user_url):  
     url = user_url 
     response = requests.get(url) 
@@ -208,16 +200,16 @@ def web_scraper(user_url):
     links = soup.find_all('a') 
     for i in links: 
         href = i.get("href") 
-        if href and not href.startswith("#") and not href.startswith("mailto:") and not href.startswith("javascript:"):
-            link = href 
-            if link.lower().endswith("pdf"): 
-                get_pdf(link,url)
+        link = href 
+        if link.lower().endswith("pdf"): 
+            get_pdf(link,url)
 
 ```
 
 ## Discussion
-To answer this question, I created two functions: get_pdf() and web_scraper() functions. The first function takes in two parameters, the link parameter and the org_uri, or the original uri parameter. The purpose of this was to take in the original uri, and the final uri in order to determine whether or not a pdf exists. First, I used the requests.get() python function to return the response object and check the status code of the link. I assigned this to a variable called response. After that, I used .url() to response in order to fetch the URL. Towards the end of the code for this get_pdf() function, I checked whether or not a pdf exists by using built in python functions to confirm that the word "application/pdf" is in the uri. 
-After creating this function, I created another function called web_scraper() that takes in a parameter called user_url. This parameter later gets parsed into the library Beautiful Soup to assist with pulling data out of HTML files. I then assigned this to a variable called soup. Then I used the built in function, find_all(), to find links with a-tags, extracting the hyperlink, which is used to link from one page to another. Following this, I created a for loop that iterates through all these links and extracting the links with the 'href' attribute, which specifies the URL of the page the link is connected to. I created a condition to check if the links' names start with "#", "mailto:", "javascript". If they do not contain these words I called them to a variable named link.  Then I checked if the word "pdf" is in the link and used the get_pdf() function to return the link and orignal url. By testing it with the link, "https://alexandernwala.com/files/teaching/fall-2022/week-2/2018_wsdl_publications.html,", and seeing that it prints out 8 pdf links, I could see that it works for this exercise. 
+
+To answer this question, I created two functions: get_pdf() and web_scraper() functions. The first function takes in two parameters, the link parameter and the org_uri, or the original uri parameter. The purpose of this was to take in the original URI, and the final URI in order to determine whether or not a pdf exists. First, I used the requests.get() python function to return the response object and check the status code of the link. I assigned this to a variable called response. After that, I used .url() to respond to fetch the URL. Towards the end of the code for this get_pdf() function, I checked whether or not a pdf exists by using built-in Python functions to confirm that the word "application/pdf" is in the URI. 
+After creating this function, I created another function called web_scraper() that takes in a parameter called user_url. This parameter later gets parsed into the library Beautiful Soup to assist with pulling data out of HTML files. I then assigned this to a variable called soup. Then I used the built-in function, find_all(), to find links with a-tags, extracting the hyperlink, which is used to link from one page to another. Following this, I created a for loop that iterates through all these links and extracts the links with the 'href' attribute, which specifies the URL of the page the link is connected to. I called them to a variable named link.  Then I checked if the word "pdf" was in the link and used the get_pdf() function to return the link and original URL. By testing it with the link, "https://alexandernwala.com/files/teaching/fall-2022/week-2/2018_wsdl_publications.html,", and seeing that it prints out 8 pdf links, I could see that it works for this exercise.
 ```
 web_scraper(link)
 
