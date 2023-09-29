@@ -211,8 +211,11 @@ def web_scraper(user_url):
 To answer this question, I created two functions: get_pdf() and web_scraper() functions. The first function takes in two parameters, the link parameter and the org_uri, or the original uri parameter. The purpose of this was to take in the original URI, and the final URI in order to determine whether or not a pdf exists. First, I used the requests.get() python function to return the response object and check the status code of the link. I assigned this to a variable called response. After that, I used .url() to respond to fetch the URL. Towards the end of the code for this get_pdf() function, I checked whether or not a pdf exists by using built-in Python functions to confirm that the word "application/pdf" is in the URI. 
 After creating this function, I created another function called web_scraper() that takes in a parameter called user_url. This parameter later gets parsed into the library Beautiful Soup to assist with pulling data out of HTML files. I then assigned this to a variable called soup. Then I used the built-in function, find_all(), to find links with a-tags, extracting the hyperlink, which is used to link from one page to another. Following this, I created a for loop that iterates through all these links and extracts the links with the 'href' attribute, which specifies the URL of the page the link is connected to. I called them to a variable named link.  Then I checked if the word "pdf" was in the link and used the get_pdf() function to return the link and original URL. By testing it with the link, "https://alexandernwala.com/files/teaching/fall-2022/week-2/2018_wsdl_publications.html,", and seeing that it prints out 8 pdf links, I could see that it works for this exercise.
 ```
-web_scraper(link)
 
+
+link = 'https://alexandernwala.com/files/teaching/fall-2022/week-2/2018_wsdl_publications.html'
+
+web_scraper(link)
 
 URI: https://www.cs.odu.edu/~mln/pubs/ht-2018/hypertext-2018-nwala-bootstrapping.pdf
 Final URI: https://www.cs.odu.edu/~mln/pubs/ht-2018/hypertext-2018-nwala-bootstrapping.pdf
