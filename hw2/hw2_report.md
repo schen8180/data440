@@ -370,7 +370,8 @@ for i in x_list:
 Since I was experimenting with all sorts of techniques, I wanted to save each trial in a different file, thus there are several differently named variables. Additionally, there were some instances when the Twitter page could not load after scrolling to fetch a large amount of links. For example, I noticed that sometimes when I ran the the program to find 2000 tweets for tweets containing the word "country", the program could only extract much less than the requested amount. After this, when trying again to fetch more links, Twitter was not responsive. This entire process was very time-consuming and I could only extract around 300 links out of 1000 assigned in this task. 
 
 This was what I saw when I wanted to get a large amount of links from twitter in one sitting: 
-![Alt text](image-1.png)
+
+![\label{fig:twitter}](https://github.com/schen8180/data440/blob/main/hw2/hw2_pic1.png?raw=true)
 
 As a result of this, it took me longer than expected to make progress on this task.
 
