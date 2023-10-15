@@ -70,6 +70,7 @@ You can write Python code for this part, but I'd recommend using the Unix tools 
 ## Answer
 
 ```
+# Given this provided program, I made additions in the def get_tweet_ids_user_timeline_page(screen_name, page, max_tweets) to extract extended URLs from the tweets pulled:
 import sys
 import time
 
@@ -322,15 +323,13 @@ if __name__ == "__main__":
                         with open('my2.txt', 'a') as file:
                             file.writelines(link['expanded_url'] + '\n')
 ```
-From the command line:
-
+From the command line: (In order to extract the unique tweets out of all the tweets extracted)
 
 ```
 (base) xi@Sophias-MacBook-Air-4 data440 % grep -Eo 'https?://[^ ]{50,}' my.txt | sort -u > new.txt 
 
 ```
 ## Discussion
-
 
 
 In order to create a Python program that will allow me to extract links from Twitter tweets, I used the given codes from scrape_twitter_v2.py and added some of my code to extract links from the tweet objects generated from running the whole program. First, I referenced the python program from process_tweets.py and based my codes from that file; I checked to see if URLs were contained in the tweet obj, and if they were, checked if links such as 'twitter.com', 'twitch.com', 'soundcloud.com' are the URLs. I made a condition so that this loop could only return the links that do not contain these words. After that, I opened a file appended all of the URLs in a new Txt file, and saved them for later use. 
@@ -373,7 +372,7 @@ This was what I saw when I wanted to get a large amount of links from twitter in
 
 ![\label{fig:twitter}](https://github.com/schen8180/data440/blob/main/hw2/hw2_pic1.png?raw=true)
 
-As a result of this, it took me longer than expected to make progress on this task.
+Additionally, after twitter provides me with this message I ussually cannot immediately run the program right after or the message will still be there. Thus, to resolve this, I had to wait for a an small amount of time before I could use the program again. As a result of this, it took me longer than expected to make progress on this task. 
 
 ## Q2 
 
@@ -408,6 +407,45 @@ Finally, upload the TimeMaps to your GitHub repo -- you'll also use these for Q3
    - To upload/commit a large number of files to GitHub, use the command line.
 
 ## Discussion
+I had to download the memgator and edit the access using Linux commands to complete this task. At first, I could not perform test commands due to my lack of access to execute memgator. After consulting with the web, I changed the type of access I was initially allowed. The commands I used to change the file permissions to gain access to execute the file were ls -l. I typed this command onto my terminal, followed by the file I was working on. After returning those commands and changing the permissions to read, write, and execute the file, I could further proceed along the task.
+
+This is an example of what the output is after using memgator command for one of my URLs:
+```
+(base) xi@Sophias-MacBook-Air-4 Downloads % ./memgator-darwin-amd64 -F 2 -f JSON "https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+{
+  "original_uri": "https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/",
+  "self": "http://localhost:1208/timemap/json/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/",
+  "mementos": {
+    "list": [
+      {
+        "datetime": "2023-10-11T15:03:48Z",
+        "uri": "https://web.archive.org/web/20231011150348/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+      },
+      {
+        "datetime": "2023-10-13T20:38:42Z",
+        "uri": "https://web.archive.org/web/20231013203842/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+      }
+    ],
+    "first": {
+      "datetime": "2023-10-11T15:03:48Z",
+      "uri": "https://web.archive.org/web/20231011150348/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+    },
+    "last": {
+      "datetime": "2023-10-13T20:38:42Z",
+      "uri": "https://web.archive.org/web/20231013203842/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+    }
+  },
+  "timemap_uri": {
+    "link_format": "http://localhost:1208/timemap/link/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/",
+    "json_format": "http://localhost:1208/timemap/json/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/",
+    "cdxj_format": "http://localhost:1208/timemap/cdxj/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+  },
+  "timegate_uri": "http://localhost:1208/timegate/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
+}
+
+
+
+```
 
 *You must provide some discussion of every answer. Discuss how you arrived at the answer and the tools you used. Discuss the implications of your answer.*
 
@@ -482,6 +520,11 @@ Q: How many URI-Rs had an age of < 1 week, meaning that their first memento was 
 * Get Final URL After a Redirect <https://www.baeldung.com/linux/url-after-redirect>
 
 * What Is an RTF File, and How Do I Open One? <https://www.howtogeek.com/358854/what-is-an-rtf-file-and-how-do-i-open-one/>
+
+* Manipulating text at the command line with grep <https://www.redhat.com/sysadmin/manipulating-text-grep>
+
+* Permission denied in Mac Terminal? Try this fix <https://macpaw.com/how-to/permission-denied-terminal#:~:text=You%20can%20usually%20fix%20it,you%20have%20formatted%20commands%20correctly.>
+
 
 
 
