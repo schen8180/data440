@@ -337,7 +337,7 @@ Q: What URI-Rs had the most mementos? Did that surprise you?
 
 A: 
 
-News sources have the most momentos, this did not surprise me.
+News sources about past wars have the most momentos, this did not surprise me.
 
 |Mementos|URI-Rs
 |:---|:---|
@@ -423,10 +423,15 @@ for filename in os.listdir(directory):
         print(count)
 
 ```
+After extracting the number of days that have passed, I used Python's matplotlib Library to import pyplot and make a scatter plot for mt data. Due to lack of enough time, I could not make this plot as visually appealing, but I will come back in the future to fix this plot and make it better for display. This is the product: 
+
+![\label{fig:twitter}](https://github.com/schen8180/data440/blob/main/hw2/DC2BFFF2-7AF6-47BA-9232-6DB46B7D1A20.jpeg?raw=true)
 
 Q: What can you say about the relationship between the age of a URI-R and the number of its mementos?
+- It is common to see older URI-Rs have more mementos compared to recent URI-Rs, but it is also normal for recent URI-Rs to have many momentos, this could be because they are a news source. 
 
 Q: What URI-R had the oldest memento? Did that surprise you?
+
 
 Q: How many URI-Rs had an age of < 1 week, meaning that their first memento was captured the same week you collected the data?
 
