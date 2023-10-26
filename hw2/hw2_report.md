@@ -69,87 +69,11 @@ You can write Python code for this part, but I'd recommend using the Unix tools 
 
 ## Answer
 
+Given the provided program, scrape_twitter_v2.py, I made additions in the def get_tweet_ids_user_timeline_page(screen_name, page, max_tweets) to extract extended URLs from the tweets pulled. This file is uploaded to this assignment's folder. 
+
 ```
-# Given this provided program, I made additions in the def get_tweet_ids_user_timeline_page(screen_name, page, max_tweets) to extract extended URLs from the tweets pulled:
-import sys
-import time
 
-from bs4 import BeautifulSoup
-from datetime import datetime
-from NwalaTextUtils.textutils import genericErrorInfo
-from NwalaTextUtils.textutils import getLinks
-
-from playwright.sync_api import sync_playwright
-from urllib.parse import quote_plus
-
-from util import paral_rehydrate_tweets
-from util import rehydrate_tweet
-from util import write_tweets_to_jsonl_file
-
-from scrape_twitter import get_auth_twitter_pg
-from scrape_twitter import get_search_tweets
-#from scrape_twitter import get_timeline_tweets
-from util import write_tweets_to_jsonl_file
-
-import gzip
-import json
-
-
-def is_twitter_user_auth(links, cur_page_uri):
-
-    if( cur_page_uri.strip().startswith('https://twitter.com/home') ):
-        return True
-
-    logged_in_links = ['https://twitter.com/home', 'https://t.co/']
-
-    for l in links:
-        for log_l in logged_in_links:
-            if( l['link'].startswith(log_l) ):
-                return True
-    return False
-
-def scroll_up(page):
-    page.evaluate("window.scrollTo( {'top': 0, 'left': 0, 'behavior': 'smooth'} );")
-
-def scroll_down(page):
-    page.evaluate("window.scrollTo( {'top': document.body.scrollHeight, 'left': 0, 'behavior': 'smooth'} );")
-
-def post_tweet(page, msg, button_name='Post', after_post_sleep=2.5):
-    #Post, Reply
-    # [id$='someId'] will match all ids ending with someId: https://stackoverflow.com/a/8714421
-    eval_str = f''' document.querySelectorAll('[aria-label$="{button_name}"]')[0].click(); '''
-    page.evaluate(eval_str)
-    time.sleep(1)
-    page.keyboard.type(msg, delay=20)
-    page.evaluate(''' document.querySelectorAll('[data-testid="tweetButton"]')[0].click(); ''')
-
-    #added because I observed that tweets were not posted without it
-    time.sleep(after_post_sleep)
-
-    
-def color_tweet(page, tweet_link):
-
-    query_slc = f'''article = document.querySelectorAll('[href="{tweet_link}"]');'''
-    page.evaluate(query_slc + '''
-        if( article.length != 0 )
-        {
-            article = article[0];
-            article.style.backgroundColor = 'red';
-            i = 0;
-            while(i < 1000)
-            {
-                if( article.nodeName == 'ARTICLE' )
-                {
-                    article.style.outline = "thick solid red";
-                    article.className = "cust-tweet";
-                    break;
-                }
-                article = article.parentElement;
-                i++;
-            }
-        }
-    ''')
-
+logged_in_links = ['https://twitter.com/home', 'https://t.co/']
 
 def get_tweet_ids_user_timeline_page(screen_name, page, max_tweets):
 
@@ -224,94 +148,6 @@ def get_tweet_ids_user_timeline_page(screen_name, page, max_tweets):
         print('\tthrottling/scrolling, then sleeping for 2 second\n')
         scroll_down(page)
         time.sleep(2)
-    
-
-def get_timeline_tweets(browser_dets, screen_name, max_tweets=20):
-
-    screen_name = screen_name.strip()
-    if( max_tweets < 0  or len(browser_dets) == 0 or screen_name == '' ):
-        return {}
-
-    print( f'\nget_timeline_tweets(): {screen_name}' )
-    uri = f'https://twitter.com/{screen_name}/with_replies'
-    
-    payload = {'self': uri, 'tweets': []}
-    browser_dets['page'].goto(uri)
-
-    tweet_ids = get_tweet_ids_user_timeline_page( screen_name, browser_dets['page'], max_tweets )
-    payload['tweets'] = paral_rehydrate_tweets(tweet_ids)
-
-    return payload
-
-def stream_tweets(browser_dets, query, max_tweets=20):
-
-    query = query.strip()
-    if( max_tweets < 0  or len(browser_dets) == 0 or query == '' ):
-        return {}
-
-    print('\nstream_tweets():')
-    uri = 'https://twitter.com/search?q=' + quote_plus(query) + '&f=live&src=typd'
-    
-    payload = {'self': uri, 'tweets': []}
-    browser_dets['page'].goto(uri)
-    
-    get_tweet_ids_user_timeline_page( '', browser_dets['page'], max_tweets )
-    
-def get_auth_twitter_pg(playwright, callback_uri=''):
-    
-    print('\nget_auth_twitter_pg()')
-
-    chromium = playwright.firefox #"chromium" or "firefox" or "webkit".
-    browser = chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
-    
-    sleep_seconds = 3
-    page.goto('https://twitter.com/login')
-    
-    while( True ):
-
-        print(f'\twaiting for login, sleeping for {sleep_seconds} seconds')
-        
-        time.sleep(sleep_seconds)
-        page_html = page.content()
-        page_links = getLinks(uri='', html=page_html, fromMainTextFlag=False)
-        scroll_down(page)
-
-        if( is_twitter_user_auth(page_links, page.url) ):
-            
-            print('\tauthenticated')
-            if( callback_uri != '' ):
-                page.goto(callback_uri)
-                print(f'\tauthenticated, loaded {callback_uri}')
-                
-            print('\tsleeping for 3 seconds')
-            time.sleep(3)
-            return {
-                'page': page,
-                'context': context,
-                'browser': browser
-            }
-    
-    return {}
-
-def main():
-    
-    if( len(sys.argv) != 3 ):
-        print(f'Usage example:\n\tpython {sys.argv[0]} "williamsburg" 20')
-        return
-   
-    with sync_playwright() as playwright:
-        
-        browser_dets = get_auth_twitter_pg(playwright)
-        if( len(browser_dets) == 0 ):
-            return
-        
-        stream_tweets(browser_dets, sys.argv[1], max_tweets=int(sys.argv[2]))
-
-if __name__ == "__main__":
-
-    main()
 
 ```
 
@@ -323,23 +159,28 @@ if __name__ == "__main__":
                         with open('my2.txt', 'a') as file:
                             file.writelines(link['expanded_url'] + '\n')
 ```
-From the command line: (In order to extract the unique tweets out of all the tweets extracted)
+
+From the command line: (In order to extract the unique tweets out of all the tweets extracted), I used this command:
 
 ```
 (base) xi@Sophias-MacBook-Air-4 data440 % grep -Eo 'https?://[^ ]{50,}' my.txt | sort -u > new.txt 
 
 ```
+Grep extracts the long links and sort extracts the unique links and sorts it in a txt file. I have relabled my file that contains 1000 links called my_1000links.txt
+
 ## Discussion
 
 
-In order to create a Python program that will allow me to extract links from Twitter tweets, I used the given codes from scrape_twitter_v2.py and added some of my code to extract links from the tweet objects generated from running the whole program. First, I referenced the python program from process_tweets.py and based my codes from that file; I checked to see if URLs were contained in the tweet obj, and if they were, checked if links such as 'twitter.com', 'twitch.com', 'soundcloud.com' are the URLs. I made a condition so that this loop could only return the links that do not contain these words. After that, I opened a file appended all of the URLs in a new Txt file, and saved them for later use. 
+To create a Python program that will allow me to extract links from Twitter tweets, I used the given codes from scrape_twitter_v2.py and added some of my code to remove links from the tweet objects generated from running the whole program. First, I referenced the Python program from process_tweets.py and based my code on that file; I checked to see if URIs were contained in the tweet object, and if they were, I checked if links such as 'twitter.com,' 'twitch.com', 'soundcloud.com' are the URLs. I made a condition so that this loop could only return the links that do not contain these words. After that, I opened a file, appended all the URLs in a new .txt file, and saved them for later use. 
 
-I then used requests and Linux commands to extract only the long unique links from the file. After many couple tries, I found that the command: grep -Eo 'https?://[^ ]{50,}' my.txt | sort -u > new.txt works the best at completing this task. I then saved that file into my directory by using > new.txt. 
+The Python program is called scrape_twitter_v2.py, and it is saved in the folder of this assignment. 
 
-I have also tried to write a Python program that could do this task, but it was not successful at extracting only the long links. Thus, I used these Linux commands. 
+I then used requests and Linux commands to extract only the long, unique links from the file. After many couple tries, I found that the command: grep -Eo 'https?://[^ ]{50,}' my.txt | sort -u > new.txt works the best at completing this task. I then saved that file into my directory by using > new.txt. 
+
+I have also tried to write a Python program that could do this task, but it was unsuccessful at extracting only the long links. Thus, I used these Linux commands. 
 
 
-This is what my python codes consisted of:
+This is what my Python program consisted of:
 
 ```
 
@@ -365,14 +206,23 @@ for i in x_list:
         # i then coped the list of URIs in a txt file for future uses
 
 ```
+This technique did not work in my Jupyter notebook, so I used Linux commands instead.
 
-Since I was experimenting with all sorts of techniques, I wanted to save each trial in a different file, thus there are several differently named variables. Additionally, there were some instances when the Twitter page could not load after scrolling to fetch a large amount of links. For example, I noticed that sometimes when I ran the the program to find 2000 tweets for tweets containing the word "country", the program could only extract much less than the requested amount. After this, when trying again to fetch more links, Twitter was not responsive. This entire process was very time-consuming and I could only extract around 300 links out of 1000 assigned in this task. 
+Since I was experimenting with various techniques, I wanted to save each trial in a different file; thus, there are several differently named variables. Additionally, there were some instances when the Twitter page could not load after scrolling to fetch many links. For example, I noticed that sometimes, when I ran the the program to find 2000 tweets for tweets containing the word "country", the program could only extract much less than the requested amount. After this, when trying again to fetch more links, Twitter was not responsive. This entire process was very time-consuming, and I could only extract around 300 links out of 1000 assigned in this task. 
 
-This was what I saw when I wanted to get a large amount of links from twitter in one sitting: 
+This was what I saw when I wanted to get a large amount of links from Twitter in one sitting: 
 
 ![\label{fig:twitter}](https://github.com/schen8180/data440/blob/main/hw2/hw2_pic1.png?raw=true)
 
 Additionally, after twitter provides me with this message I ussually cannot immediately run the program right after or the message will still be there. Thus, to resolve this, I had to wait for a an small amount of time before I could use the program again. As a result of this, it took me longer than expected to make progress on this task. 
+
+Moreover, the twitter webpage is more likely to stop running after minimize the window, so I have to keep the webpage open when I am running it. 
+
+### Update (10/19):
+After professor Nwala advised me to use two seperate twitter accounts to collect tweets, I was able to extract the links from tweets at a much faster rate. I finally collected 1000 links. 
+
+I also manually removed the links that refernce a video as my function that I wrote does not seem to be able to exclude these links. I used the command f property in my mac to do this. 
+
 
 ## Q2 
 
@@ -406,10 +256,11 @@ Finally, upload the TimeMaps to your GitHub repo -- you'll also use these for Q3
 
    - To upload/commit a large number of files to GitHub, use the command line.
 
-## Discussion
-I had to download the memgator and edit the access using Linux commands to complete this task. At first, I could not perform test commands due to my lack of access to execute memgator. After consulting with the web, I changed the type of access I was initially allowed. The commands I used to change the file permissions to gain access to execute the file were ls -l. I typed this command onto my terminal, followed by the file I was working on. After returning those commands and changing the permissions to read, write, and execute the file, I could further proceed along the task.
 
-This is an example of what the output is after using memgator command for one of my URLs:
+## Answer and Discussion
+I had to download the memgator and edit the access using Linux commands to complete this task. At first, I could not perform test commands due to my lack of access to execute memgator. After consulting with the web and Professor Nwala, I changed the type of access I was initially allowed. The commands I used to change the file permissions to gain access to execute the file were ls -l. I typed this command onto my terminal, followed by the file I was working on. After returning those commands and changing the permissions to read, write, and execute the file, I could further proceed along the task.
+
+This is an example of what the output is after using the memgator command for one of my URIs:
 ```
 (base) xi@Sophias-MacBook-Air-4 Downloads % ./memgator-darwin-amd64 -F 2 -f JSON "https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
 {
@@ -443,11 +294,26 @@ This is an example of what the output is after using memgator command for one of
   "timegate_uri": "http://localhost:1208/timegate/https://wydaily.com/news/local/2023/10/11/tour-de-midnight-bike-ride-rolls-to-williamsburg-for-epilepsy-awareness/"
 }
 
-
-
 ```
 
-*You must provide some discussion of every answer. Discuss how you arrived at the answer and the tools you used. Discuss the implications of your answer.*
+It is best and more convenient to create a program that can automate collecting each link from the file of 1000 links, running the memgator-darwin-amd64 command for each link, and storing them in a separate file in my folder. Doing this all by myself was difficult, so I went to TA hours and asked questions, worked with friends, and consulted with the web. They were beneficial to me.
+
+I first created a function that takes in the parameters URI and counter.
+Following that, I created a try block and except block. 
+Inside the try block, I used Python's built-in subprocess.check_out() function to check if the format that appears after running the memgator command is "./memgator-darwin-amd64","-F","2","-f","JSON" followed by the requested URI.
+
+After that, I saved each URI into a file and stored it in a variable called output_file
+
+The except blocks catch the errors that appear so that Python would not stop and crash when an error occurs. 
+
+Next, I created a loop that iterates through the URIs and made a new file for each URI. 
+
+I also noticed that only a few of my links have a time map showing that there more recently created web pages compared to older sites.
+
+The program is stored in part2.py, and the .json files that contain the time maps are stored in a file named hw2file. This file is zipped in a file called my_archive.tar.gz. 
+
+This process took approxiamately eight hours. 
+
 
 
 ## Q3. Analyze Mementos Per URI-R. (2 points)
@@ -465,26 +331,57 @@ Use the TimeMaps you saved in Q2 to analyze how well the URIs you collected in Q
 |30|27|
 |57|3|
 
-If you are using LaTeX, you should create a LaTeX table -- don't submit a spreadsheet or image of a table created in something else. If you are using Markdown, you can view the source of this file for an example of how to generate a table.
+If you will end up with a very large table of memento counts, you can bin the number of mementos. Just make sure that the bin sizes are reasonable and that you specify how many had 0 mementos individually. The target is to have no more than 15-20 rows so that your table can fit on a single page.
 
-If you will end up with a very large table of memento counts, you can bin the number of mementos. Just make sure that the bin sizes are reasonable and that you specify how many had 0 mementos individually. The target is to have no more than 15-20 rows so that your table can fit on a single page. For example
+Q: What URI-Rs had the most mementos? Did that surprise you?
 
+A: 
+
+News sources have the most momentos, this did not surprise me.
 
 |Mementos|URI-Rs
 |:---|:---|
-|0|750|
-|1-10|150|
-|11-20|50|
-|21-30|47|
-|57|3|
-
-
-Q: What URI-Rs had the most mementos? Did that surprise you?
+|0|513|
+|1-10|58|
+|11-20|13|
+|21-30|7|
+|31-40|5|
+|41-50|2|
+|51-60|1|
+|61-70|1|
+|71-80|2|
+|81-90|0|
+|91-100|3|
+|101-200|1|
+|201-300|1|
+|301-400|2|
+|401-500|0|
+|501-600|1|
 
 
 ## Discussion
 
-*You must provide some discussion of every answer. Discuss how you arrived at the answer and the tools you used. Discuss the implications of your answer.*
+To complete this task, I created a function that measures each memgator count for each json file. 
+
+This is the code snippet: 
+
+def memgator_count(file):
+    try:
+        directory  = file
+        for filename in os.listdir(directory):
+            with open(filename) as file:
+                data = json.load(file)
+                count = 0
+                for i in data['mementos']['list']:
+                    count +=1
+                print(count) 
+    except FileNotFoundError:
+        print("file is not found")
+    print(len(os.listdir(directory))) # gets the count 
+
+memgator_count("hw2files") # will print out the counts for each .json file that contain mementos. 
+
+Using this function memgator_count("hw2files"), it prints out the total number of memgators for each file. These numbers are stored in the table above.  
 
 ## Q4. Analyze Datetimes of Mementos. (2 points)
 
@@ -494,6 +391,38 @@ For each of the URI-Rs from Q3 that had > 0 mementos, create a scatterplot with 
 ![Alt text](image.png)
 
 This scatterplot should be created using either R or Python, not Excel.
+
+This is the code I wrote to collect data for the scatterplot:
+
+```
+
+
+directory  = "hw2files"
+for filename in os.listdir(directory):
+    with open(filename) as file:
+
+        data = json.load(file)
+        count = 0
+        my = []
+        for i in data['mementos']['list']:
+            #my = []
+            test_dict = i
+            #print(test_dict)
+            #print(test_dict.get('datetime')) # gets the times for each timemap file
+            times = test_dict.get('datetime')
+            new_format = times[:-10]
+            #print(new_format)
+            time_s = datetime.fromisoformat(new_format)
+            my.append(time_s)
+            count +=1
+            early = min(my)
+        #print(datetime.now())
+        #print(early)
+        now = datetime.now() - early
+        print(now)
+        print(count)
+
+```
 
 Q: What can you say about the relationship between the age of a URI-R and the number of its mementos?
 
@@ -524,6 +453,25 @@ Q: How many URI-Rs had an age of < 1 week, meaning that their first memento was 
 * Manipulating text at the command line with grep <https://www.redhat.com/sysadmin/manipulating-text-grep>
 
 * Permission denied in Mac Terminal? Try this fix <https://macpaw.com/how-to/permission-denied-terminal#:~:text=You%20can%20usually%20fix%20it,you%20have%20formatted%20commands%20correctly.>
+
+* How to Append Contents of Multiple Files Into One File on Linux? <https://www.tutorialspoint.com/how-to-append-contents-of-multiple-files-into-one-file-on-linux#:~:text=Method%201%3A%20Use%20the%20cat%20command&text=The%20%22%3E%3E%22%20operator%20adds,additional%20files%20to%20the%20command.>
+
+* Python String format() Method <https://www.w3schools.com/python/ref_string_format.asp>
+
+* What does %s mean in a Python format string? <https://www.geeksforgeeks.org/what-does-s-mean-in-a-python-format-string/#>
+
+* An Introduction to Subprocess in Python With Examples <https://www.simplilearn.com/tutorials/python-tutorial/subprocess-in-python>
+
+* Python Try Except <https://www.w3schools.com/python/python_try_except.asp>
+
+* Python datetime module <https://www.geeksforgeeks.org/python-datetime-module/>
+
+* datetime — Basic date and time types <https://docs.python.org/3/library/datetime.html>
+
+
+
+
+
 
 
 
