@@ -26,13 +26,11 @@ Q: How many of your 1000 URIs produced useful text? If that number was less than
 
 ## Answer
 
+It seems like most of my html files contain readable text with the exception of some of them being in different languages. 
 
+Most of my URIs produced useful text, and that did not surprise me because most of my URIs collected were news articles or scholarly sites. 
 
-The example figure below shows the growth in the number of websites between 1993 and 1996.
-
-![\label{fig:web-growth}](https://raw.githubusercontent.com/anwala/teaching-web-science/main/fall-2022/homework/hw0/growth_early_web.png)
-
-
+In addition, I ran across a couple of problems in my function such as html errors. These affected my extraction as I could only extract 150 raw text files from my 1000 html files. After I searched these errors up, I was told I needed to install a couple of modules, such as import urllib3 in Python, but that still did not fix the problem. 
 
 ```python
 #works 
@@ -59,14 +57,6 @@ for i in uris:
             file.writelines(str(processed_content))
         content_file
 ```
-
-It seems like most of my html files contain readable text with the exception of some of them being in different languages. 
-
-How many of your 1000 URIs produced useful text? If that number was less than 1000, did that surprise you?
-
-Most of my URIs produced useful text, and that did not surprise me because most of my URIs collected were news articles or scholarly sites. 
-
-In addition, I ran across a couple of problems in my function such as html errors, and after I searched these errors up, I was told I needed to install a couple of modules, such as import urllib3 in Python. 
 
 ## Discussion
 
