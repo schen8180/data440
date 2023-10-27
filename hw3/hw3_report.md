@@ -143,15 +143,15 @@ Table 1. 10 Hits for the term "war".
 
 |TF-IDF |TF |IDF  |URI
 |------:|--:|---:|---
-|0.0014105|0.0008101  |1.7411|uri96.html https://www.cnn.com/2023/07/14/middleeast/palestinians-mock-abbas-mime-intl/index.html 
-|5.5210e-4|0.0003171  |1.7411|uri93.html https://econcryptohub.com/owner-pick/hsk-2-master-mandarin-chinese-characters-workbook-volume-1-learning-chinese-new-words-pinyin-writing-stroke-order-popular-phrases-example-for-beginners-master-chinese-characters/ 
-|0.001592|0.0009156  |1.7411|uri61.html https://cgireland.org/planned-events-for-national-allotments-community-gardens-week/
-|4.686e-4|0.0002691  |1.7411|uri24.html https://abcnews.go.com/Business/wireStory/taylor-swifts-eras-tour-dances-1-box-office-103995175
 |2.35394|0.0001352  |1.7411|uri17.html https://www.live5news.com/2023/10/10/suspect-deadly-williamsburg-co-shooting-now-charged-with-murder/
-|0.002583|0.0014837  |1.7411|uri11.html http://www.diariopopularmg.com.br/
-|4.5913e-4|0.0002637  |1.7411|uri13.html http://www.diariopopularmg.com.br/
 |0.01975|0.0113416  |1.7411|uri22.html https://123moviesaz.top/
+|0.002583|0.0014837  |1.7411|uri11.html http://www.diariopopularmg.com.br/
+|0.001592|0.0009156  |1.7411|uri61.html https://cgireland.org/planned-events-for-national-allotments-community-gardens-week/
+|0.0014105|0.0008101  |1.7411|uri96.html https://www.cnn.com/2023/07/14/middleeast/palestinians-mock-abbas-mime-intl/index.html 
 |0.00111|0.0006373  |1.7411|uri25.html https://www.newsbreak.com/williamsburg-county-sc/3187003770457-suspect-in-williamsburg-county-homicide-facing-an-upgraded-charge-wcso
+|5.5210e-4|0.0003171  |1.7411|uri93.html https://econcryptohub.com/owner-pick/hsk-2-master-mandarin-chinese-characters-workbook-volume-1-learning-chinese-new-words-pinyin-writing-stroke-order-popular-phrases-example-for-beginners-master-chinese-characters/ 
+|4.686e-4|0.0002691  |1.7411|uri24.html https://abcnews.go.com/Business/wireStory/taylor-swifts-eras-tour-dances-1-box-office-103995175
+|4.5913e-4|0.0002637  |1.7411|uri13.html http://www.diariopopularmg.com.br/
 |1.1728e-4|0.0000993  |1.7411|uri32.html https://agenciaajn.com/noticia/israel-el-jefe-del-consejo-de-seguridad-nacional-dice-que-la-cuestion-de-los-rehenes-israelies-en-gaza-es-parte-central-de-cada-discusion-223527
 
 
