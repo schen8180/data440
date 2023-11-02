@@ -85,9 +85,6 @@ plt.show()
 ```
 
 
-## Discussion
-
-
 * How do I select a subset of a DataFrame?, <https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html>
 
 * How to Convert Pandas DataFrame into a List?, <https://www.geeksforgeeks.org/how-to-convert-pandas-dataframe-into-a-list/>
