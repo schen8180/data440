@@ -24,7 +24,7 @@ The figure below shows an example of the friendship paradox for a user.
 
 I used Python code and imported libraries such as the pandas, numpy, matplotlib, and seaborn libraries to do this assignment. 
 
-Then, I imported and read this assignment's data file and named it as friends. From this, I created variables that separate the user, User, from their friends and the variable User by themself. Then, I used Python to calculate the mean, variance, and standard deviation for their friends. 
+Then, I imported and read this assignment's data file and named it as friends. From this, I created variables that separate the user, User, from their friends and the variable User by themself. Then, I used Python to calculate the mean, median, and standard deviation for their friends. 
 
 To create the plot, I utilized the concepts I learned from my data visualization class and made a scatter plot that shows the friendship paradox. The plot I made does, indeed, show that the friendship paradox holds for this individual. 
 
