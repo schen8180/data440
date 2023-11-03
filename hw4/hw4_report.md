@@ -16,7 +16,7 @@ Q: What is the mean, standard deviation, and median of the number of friends tha
 ## Answer
 According to the plot I made, it shows that the user has fewer friends than the friends their friends have. Thus, the friendship paradox does hold for this user's Facebook account. 
 
-For the number of friends that the user's friends have, they have a mean of 538.8247, a standard deviation of 538.0865, and a variance of 289537.1136. 
+For the number of friends that the user's friends have, they have a mean of 542.6734693877551, a standard deviation of 536.6744685696292, and a median of 396.0. 
 
 The figure below shows an example of the friendship paradox for a user.
 
@@ -24,11 +24,11 @@ The figure below shows an example of the friendship paradox for a user.
 
 I used Python code and imported libraries such as the pandas, numpy, matplotlib, and seaborn libraries to do this assignment. 
 
-Then, I imported and read this assignment's data file and named it as friends. From this, I created variables that separate the user, Nwala, from their friends and the variable Nwala by themself. Then, I used Python to calculate the mean, variance, and standard deviation for their friends. 
+Then, I imported and read this assignment's data file and named it as friends. From this, I created variables that separate the user, User, from their friends and the variable User by themself. Then, I used Python to calculate the mean, variance, and standard deviation for their friends. 
 
 To create the plot, I utilized the concepts I learned from my data visualization class and made a scatter plot that shows the friendship paradox. The plot I made does, indeed, show that the friendship paradox holds for this individual. 
 
-![\label{fig:friendship}](https://github.com/schen8180/data440/blob/main/hw4/hw_4plot.png?raw=true)
+![\label{fig:friendship}](https://github.com/schen8180/data440/blob/main/hw4/hw_4%20(1).png?raw=true)
 
 
 ```python
@@ -40,45 +40,38 @@ import seaborn as sns
 
 friends = pd.read_csv('friend_count.csv')
 
-no_nwala = friends[:-1] # to get df without nwala
+no_user = friends[:-1] # to get df without user
 
-no_nwala_list = no_nwala[" FRIENDCOUNT"].to_numpy()
+no_user_list = no_user[" FRIENDCOUNT"].to_numpy()
 
-np.mean(no_nwala_list) #getting mean
-538.8247422680413
+np.mean(no_user_list) #getting mean
+542.6734693877551
 
-np.std(no_nwala_list) #standard deviation
-538.086529858
+np.std(no_user_list) #standard deviation
+536.6744685696292
 
-np.var(no_nwala_list) #variance 
-289537.11361462425
+np.median(no_user_list)
+396.0
 
-mylist = []
-counter = 0
-for i in friends['USER']:
-    counter += 1
-    i = f"friend {counter}" 
-    mylist.append(i)
 
-friends['USERS'] = mylist # add in a new column
+user = friends_list[friends_list["USER"] == 'User ']
+#getting info about user
 
-friends_list = friends.drop(["USER"],axis=1) #drop unncessary columns, such as the old column
+friends_list.sort_values(' FRIENDCOUNT', ascending=False, inplace=True)
+#sorting the values
 
-nwala = friends_list[friends_list['USERS'] ==  'friend 98'] #getting info about nwala
-
-#making the plot,  this is where the nwala comes in 
-plt.figure(figsize = [16,6])
-ax = sns.scatterplot(data = friends_list, x = "USERS", y = " FRIENDCOUNT", s = 60, alpha = 0.99, ec = 'k')
-sns.scatterplot(data = nwala, x = "USERS", y = " FRIENDCOUNT", s = 250, ec = 'crimson', ax = ax,
+#making the plot,  this is where the user comes in 
+plt.figure(figsize = [30,16])
+ax = sns.scatterplot(data = friends_list, x = "USER", y = " FRIENDCOUNT", s = 60, alpha = 0.99, ec = 'k')
+sns.scatterplot(data = user , x = "USER", y = " FRIENDCOUNT", s = 250, ec = 'crimson', ax = ax,
                color = 'none')
 
 plt.yticks(fontsize = 14)
-plt.xticks(fontsize = 14)
-plt.xlabel('USERS', fontsize = 16, labelpad = 20)
-plt.xticks(fontsize=8,rotation=60, weight = 'bold')
-plt.xlim(-3, 99)
-plt.ylabel( 'FRIENDCOUNT', fontsize = 16, labelpad = 20)
-plt.title("Does the Friendship Paradox hold for this user and their friends on Facebook?")
+plt.xlabel('USERS', fontsize = 26, labelpad = 20)
+plt.xticks(fontsize=12,rotation=60, weight = 'bold')
+plt.xlim(-5, 99)
+plt.ylabel( 'FRIENDCOUNT', fontsize = 26, labelpad = 20)
+plt.title("Does the Friendship Paradox hold for this user and their friends on Facebook?",fontsize = 26)
 plt.savefig('hw_4.png',bbox_inches = 'tight',facecolor='white')
 plt.show()
 
