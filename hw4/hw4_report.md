@@ -28,7 +28,7 @@ Then, I imported and read this assignment's data file and named it as friends. F
 
 To create the plot, I utilized the concepts I learned from my data visualization class and made a scatter plot that shows the friendship paradox. The plot I made does, indeed, show that the friendship paradox holds for this individual. 
 
-![\label{fig:friendship}](https://github.com/schen8180/data440/blob/main/hw4/hw_4%20(1).png?raw=true)
+![\label{fig:friendship}](https://github.com/schen8180/data440/blob/main/hw4/hw_4%20(2).png?raw=true)
 
 
 ```python
@@ -42,7 +42,7 @@ friends = pd.read_csv('friend_count.csv')
 
 no_user = friends[:-1] # to get df without user
 
-no_user_list = no_user[" FRIENDCOUNT"].to_numpy()
+no_user_list = no_user[" FRIENDCOUNT"].to_numpy() #converting the values into a list to perform python calculations to find the mean, standard deviation, and the median of the friend counts. 
 
 np.mean(no_user_list) #getting mean
 542.6734693877551
@@ -53,17 +53,28 @@ np.std(no_user_list) #standard deviation
 np.median(no_user_list)
 396.0
 
+#making a list with friend count for later use
+mylist = []
+counter = 0
+for i in friends['USER']:
+    counter += 1
+    i = f"friend {counter}" 
+    mylist.append(i)
+mylist #this is the list of friends
 
-user = friends_list[friends_list["USER"] == 'User ']
+friends['USERS'] = mylist
+
 #getting info about user
+user = friends[friends["USER"] == 'User ']
 
-friends_list.sort_values(' FRIENDCOUNT', ascending=False, inplace=True)
 #sorting the values
+friends.sort_values(' FRIENDCOUNT', ascending=False, inplace=True)
 
-#making the plot,  this is where the user comes in 
+
+#making the plot,  this is where the user and the list comes in 
 plt.figure(figsize = [30,16])
-ax = sns.scatterplot(data = friends_list, x = "USER", y = " FRIENDCOUNT", s = 60, alpha = 0.99, ec = 'k')
-sns.scatterplot(data = user , x = "USER", y = " FRIENDCOUNT", s = 250, ec = 'crimson', ax = ax,
+ax = sns.scatterplot(data = friends, x = "USERS", y = " FRIENDCOUNT", s = 60, alpha = 0.99, ec = 'k')
+sns.scatterplot(data = user , x = "USERS", y = " FRIENDCOUNT", s = 250, ec = 'crimson', ax = ax,
                color = 'none')
 
 plt.yticks(fontsize = 14)
