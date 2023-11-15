@@ -138,9 +138,75 @@ Compare the connected components of the Girvan-Newman split graph (Q2) with the 
 
 Q: Did all of the same colored nodes end up in the same group? If not, what is different?
 
+
 ## Answer
 
+It does not seem like all of the same-colored nodes end up in the same group after the network is split. Additionally, I also observe that depending on how the algorithm iterates, there is no consistent outcome after each time the algorithm finishes producing the result. The built-in function of the karate graph split algorithm also models this behavior.
+
+This is the algorithm that I found online: 
+
+```
+
+karate_club_split = nx.algorithms.community.centrality.girvan_newman(G)
+karate_club_split_tuple = tuple(sorted(c) for c in next(karate_club_split))
+karate_club_split_tuple
+
+([0, 1, 3, 4, 5, 6, 7, 10, 11, 12, 13, 16, 17, 19, 21],
+ [2, 8, 9, 14, 15, 18, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33])
+
+# get colors in the graph
+color_list = ['r' if node in karate_club_split_tuple[0] else 'g' for node in G.nodes]
+nx.draw_kamada_kawai(G, node_color = color_list, with_labels=True)
+
+```
+
+
 ## Discussion
+
+```
+counter = 0
+while len(list(nx.connected_components(G))) <= 1: # this means if the there are 1 big component, in this case
+# G has has not been split into more than one component so the the loops keeps iterating until the big network breaks into two
+  counter += 1
+  ebc = nx.edge_betweenness_centrality(G)
+  all_edges_betweenness_list = list(ebc.values())
+  max_betweenness_value = max(zip(ebc.values(), ebc.keys()))[0]
+  max_betweenness_edge = max(zip(ebc.values(), ebc.keys()))[1] #edge with maximum betweeness value
+  G.remove_edge(*max_betweenness_edge)
+  #components = list(nx.connected_components(G))
+print(counter)
+pos = nx.spring_layout(G)
+nx.draw(G, pos=pos, with_labels=True, node_color=color)
+```
+
+After using the code above to split the network graph, I compared the nodes from the initial graph to the nodes from this split-community graph. 
+
+The line, #components = list(nx.connected_components(G)), finds the two groups of students that were disconnected through the karate clib split. 
+
+```
+
+
+mr_hi = []
+for i in G.neighbors(0):
+  mr_hi.append(i)
+print(mr_hi)
+
+[1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 17, 19, 21, 31]  # mr_hi
+
+john_a = []
+for i in G.neighbors(33):
+  john_a.append(i)
+print(john_a)
+
+[8, 9, 13, 14, 15, 18, 19, 20, 23, 26, 27, 28, 29, 30, 31, 32, 22] # john_a
+
+
+Final graph components: 
+
+[{0, 1, 3, 4, 5, 6, 7, 10, 11, 12, 13, 16, 17, 19, 21}, # mr_hi
+ {2, 8, 9, 14, 15, 18, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33}] # john_a
+
+```
 
 # References 
 
