@@ -181,7 +181,7 @@ nx.draw(G, pos=pos, with_labels=True, node_color=color)
 
 After using the code above to split the network graph, I compared the nodes from the initial graph to the nodes from this split-community graph. 
 
-The line, #components = list(nx.connected_components(G)), finds the two groups of students that were disconnected through the karate clib split. 
+The line, #components = list(nx.connected_components(G)), finds the two groups of students that were disconnected through the karate club split. 
 
 ```
 
