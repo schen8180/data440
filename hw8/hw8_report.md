@@ -29,7 +29,7 @@ Save the list of accounts (screen_names), one per line, in a text file named `ac
 
 ## Answer
 
-The accounts that I have found mostly belongs in the topics of celebrity, politics, tech, education, sports, entertainment, news, music. 
+The accounts I have found mostly belong to celebrities, politics, tech, education, sports, entertainment, news, and music. 
 
 ### Q2 - Create Account-Term Matrix (3 points)
 
@@ -69,15 +69,15 @@ Once `tweet_term_matrix.txt` has been generated, you can use it in place of `blo
 ## Answer
 
 *A
-The general operation of generate_tweet_vector.py logs onto twitter from information given by the user, and parses through it to complete tasks that are defined by functions such as write_popular_terms_and_tweet_term_matrix(), writecounts(),  getwords() etc. These functions also help create new files that stores their outputs. 
+The general operation of generate_tweet_vector.py logs onto Twitter from information given by the user and parses through it to complete tasks that are defined by functions such as write_popular_terms_and_tweet_term_matrix(), write counts (), networks (), etc. These functions also help create new files that store their outputs. 
 
-Tweets are converted to the account-term matrix by iterating through words in popular list, a list of 500 most frequent tweet terms, and reporting the number of items each term is present in the top 50 popular accounts. The with open() line creates a file called 'tweet_term_matrix.txt'. After writing down the word 'Account' to organize the twitter accounts, the first for-loop iterates over the words in the list of 500 most frequent terms called popularlist and records in the created file.
-After that, another iteration is done to iterate over an empty dictionary to store the
-frequency of each word appearing in the 50 most popular twitter accounts. After that, an account term matrix is created in a file called 'tweet_term_matrix.txt' that shows the relationship between words in documents. 
+Tweets are converted to the account-term matrix by iterating through words in the popular list, a list of the 500 most frequent tweet terms, and reporting the number of items each time they are present in the top 50 popular accounts. The open() line creates a file called 'tweet_term_matrix.txt.' The first for-loop iterates over the words in the list of 500 most frequently used terms called popular list and records in the created file.
+After that, another iteration is done over an empty dictionary to store the
+frequency of each word appearing in the 50 most popular Twitter accounts. After that, an account term matrix is created in a file called 'tweet_term_matrix.txt' that shows the relationship between words in documents. 
 
 *B
 
-The code block that I have created to filter for the 500 most frequent non-stopword terms is show below: 
+The code block that I have created to filter for the 500 most frequent non-stopword terms is shown below: 
 
 ```
     # sumcounts is a dictionary
@@ -96,14 +96,13 @@ The code block that I have created to filter for the 500 most frequent non-stopw
     popularlist
 
 ```
-In this code, I first created an empty list called popular list to later store the 500 most frequent non-stopword terms. In addition, after importing a python module that I can use to find english stopwords, I stored them in a variable called stop_words. 
+In this code, I first created an empty popular list to store the 500 most frequent non-stopword terms later. In addition, after importing a Python module that I can use to find English stopwords, I kept them in a variable called stop_words. 
 
-I created a loop that iterates over a key-value pairs inside the sumcounts dictionary. I split the values from their keys and converted them into strings using str().split() to filter them from the stopwords. The ```sumcounts[key] = ''.join(filtered_words)``` line concatenates these new words back into the dictionary. Then I sorted the words in terms of their frequency by using the sorted() python function and lambda. I find that the 500 most frequent terms are in the first 500 index positions. Finally, I appended my findings into popularlist I created from the beginning. 
-
+I created a loop that iterates over key-value pairs inside the sumcounts dictionary. I split the values from their keys and converted them into strings using str().split() to filter them from the stopwords. The ```sumcounts[key] = ''.join(filtered_words)``` line concatenates these new words back into the dictionary. Then, I sorted the words in terms of their frequency by using the sorted() Python function and lambda. The 500 most frequent terms are in the first 500 index positions. Finally, I appended my findings to the popular list I created from the beginning. 
 
 *C
 
-The 500 words somewhat makes sense from the twitter accounts that the python program parsed through. Since my accounts.txt list consist of most celebrities in the entertainment industry, I believe that words that my function found made sense. For example, the words vegas, tickets, special, concert, artistry allign with the nature of my twitter accounts I chose for this assignment. 
+The 500 words make sense from the Twitter accounts that the Python program parsed through. Since my accounts.txt list consists of most celebrities in the entertainment industry, the words my function created made sense. For example, the words Vegas, tickets, special, concert, and artistry align with the nature of the Twitter account I chose for this assignment. 
 
 ### Q3 - Create Dendrogram (1 point)
 Create an ASCII dendrogram *and* a JPEG dendrogram that uses hierarchical clustering to cluster the most similar accounts (see Module 12, slides 21, 23).  Include the JPEG in your report and upload the ASCII file to GitHub (it will be too unwieldy for inclusion in the report).
@@ -112,7 +111,7 @@ Create an ASCII dendrogram *and* a JPEG dendrogram that uses hierarchical cluste
 
 ## Answer
 
-The hierarchical clustering did somewhat an okay job in grouping similar accounts together. 
+The hierarchical clustering did an okay job of grouping similar accounts. 
 
 ```
                 -
@@ -290,11 +289,11 @@ Iteration 99
 
 *A: Give a brief explanation of how the k-Means algorithm operates on this data.  What features is the algorithm considering?*
 
-The k-Means algorithm from the python program takes in the data and the number of clusters that the user specifies and creates clusters of the data based on the number of clusters the user assigns. It works by finding the distinct groups or clusters of data that are closest together. Then it partitions the data into clusters based on distances of the data mean to that data point. 
+The k-means algorithm from the Python program takes in the data and the number of clusters the user specifies and creates data sets based on the number of clusters the user assigns. It works by finding the distinct groups or clusters of data that are closest together. Then, it partitions the data into clusters based on the distances of the data mean to that data point. 
 
 *B: How many iterations were required for each value of `k`?*
 
-The number of iterations vary by each value of k
+The number of iterations vary by each value of k. 
 
 *C: Which `k` value created the most reasonable clusters?  For that grouping, characterize the accounts that were clustered into each group.*
 
