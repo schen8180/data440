@@ -1,0 +1,58 @@
+The account names in cluster 1 are:
+katyperry
+justinbieber
+taylorswift13
+rihanna
+ladygaga
+jtimberlake
+TheEllenShow
+britneyspears
+Cristiano
+KimKardashian
+shakira
+selenagomez
+JLo
+ArianaGrande
+ddlovato
+jimmyfallon
+Oprah
+Pink
+Drake
+Harry_Styles
+onedirection
+BillGates
+KingJames
+LilTunechi
+BrunoMars
+KAKA
+Adele
+NiallOfficial
+wizkhalifa
+Real_Liam_Payne
+Louis_Tomlinson
+EmWatson
+danieltosh
+kourtneykardash
+zaynmalik
+
+The account names in cluster 2 are:
+aliciakeys
+ConanOBrien
+
+The account names in cluster 3 are:
+pitbull
+NICKIMINAJ
+neymarjr
+Eminem
+iamsrk
+
+The account names in cluster 4 are:
+MileyCyrus
+KevinHart4real
+AvrilLavigne
+ActuallyNPH
+davidguetta
+SrBachchan
+aplusk
+The account names in cluster 5 are:
+khloekardashian
