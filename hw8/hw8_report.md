@@ -1,4 +1,6 @@
 # Homework 8 - Clustering
+### Sophia Chen
+### DATA 440, Fall 2023
 **Due:** December 7, 2023 by 11:59pm
 
 
@@ -7,11 +9,6 @@
 The goal of this assignment is to cluster Twitter accounts based on the content of their last 200 tweets.
  
 **Important:** Much of the code for this assignment is provided for you, therefore, your report must include a high-level description of how the code works and answers to all of the sub-questions asked.
-
-**Tips for Completing this Assignment:**
-* Your first reference should be the [Module 12 lecture slides](https://docs.google.com/presentation/d/1QK7Of4o0gzYl2e0fSCOXuHlVMNflIUVJ/edit?usp=sharing), class [Colab notebook](https://github.com/anwala/teaching-web-science/blob/main/fall-2022/week-12/data_440_03_f22_mod_12_pci_ch_03.ipynb), and *Programming Collective Intelligence* book and [Chapter 3 code](https://github.com/arthur-e/Programming-Collective-Intelligence/tree/master/chapter3). *Don't start with a Google search.*
-
-Write a report that contains the answers and *explains how you arrived at the answers* to the following questions. Before starting, review the [HW report guidelines](https://github.com/anwala/teaching-web-science/blob/main/fall-2023/homework/hw0/reports.md).  Name your report for this assignment `hw8_report` with the proper file extension.
 
 **Report (2 points**)
 
@@ -29,6 +26,10 @@ Because we're trying to cluster the accounts based on the text in their tweets, 
 Save the list of accounts (screen_names), one per line, in a text file named `accounts.txt` and upload to your GitHub repo.
 
 *B: What topics/categories do the accounts belong to?  You don't need to specify a grouping for each account, but what general topics/categories will you expect to be revealed by the clustering? Provide a this list before generating your clusters*
+
+## Answer
+
+The accounts that I have found mostly belongs in the topics of celebrity, politics, tech, education, sports, entertainment, news, music. 
 
 ### Q2 - Create Account-Term Matrix (3 points)
 
@@ -65,19 +66,240 @@ Once `tweet_term_matrix.txt` has been generated, you can use it in place of `blo
 
 *C: Do the 500 most frequent terms make sense based on the accounts that you chose?*
 
+## Answer
+
+*A
+The general operation of generate_tweet_vector.py logs onto twitter from information given by the user, and parses through it to complete tasks that are defined by functions such as write_popular_terms_and_tweet_term_matrix(), writecounts(),  getwords() etc. These functions also help create new files that stores their outputs. 
+
+Tweets are converted to the account-term matrix by iterating through words in popular list, a list of 500 most frequent tweet terms, and reporting the number of items each term is present in the top 50 popular accounts. The with open() line creates a file called 'tweet_term_matrix.txt'. After writing down the word 'Account' to organize the twitter accounts, the first for-loop iterates over the words in the list of 500 most frequent terms called popularlist and records in the created file.
+After that, another iteration is done to iterate over an empty dictionary to store the
+frequency of each word appearing in the 50 most popular twitter accounts. After that, an account term matrix is created in a file called 'tweet_term_matrix.txt' that shows the relationship between words in documents. 
+
+*B
+
+The code block that I have created to filter for the 500 most frequent non-stopword terms is show below: 
+
+```
+    # sumcounts is a dictionary
+    popularlist = []
+    stop_words = set(stopwords.words('english')) # trying to find the stopwords in the english language
+
+    for key, value in sumcounts.items(): #iterate over a key, value pair in dictionary 
+        words = str(value).split() 
+        filtered_words = [word for word in words if word.lower() not in stop_words] # filtering out the words if they are non-stop words
+        sumcounts[key] = ''.join(filtered_words) #add these words into the dictionary 
+    sorted_items = sorted(sumcounts.items(), key=lambda x: x[1], reverse=True) #sorting the dictionary in descending order based on word counts
+    first_500_largest = sorted_items[:500] #getting the first 500 words 
+    keys_only = [item[0] for item in first_500_largest] 
+    for i in keys_only:
+        popularlist.append(i)
+    popularlist
+
+```
+In this code, I first created an empty list called popular list to later store the 500 most frequent non-stopword terms. In addition, after importing a python module that I can use to find english stopwords, I stored them in a variable called stop_words. 
+
+I created a loop that iterates over a key-value pairs inside the sumcounts dictionary. I split the values from their keys and converted them into strings using str().split() to filter them from the stopwords. The ```sumcounts[key] = ''.join(filtered_words)``` line concatenates these new words back into the dictionary. Then I sorted the words in terms of their frequency by using the sorted() python function and lambda. I find that the 500 most frequent terms are in the first 500 index positions. Finally, I appended my findings into popularlist I created from the beginning. 
+
+
+*C
+
+The 500 words somewhat makes sense from the twitter accounts that the python program parsed through. Since my accounts.txt list consist of most celebrities in the entertainment industry, I believe that words that my function found made sense. For example, the words vegas, tickets, special, concert, artistry allign with the nature of my twitter accounts I chose for this assignment. 
+
 ### Q3 - Create Dendrogram (1 point)
 Create an ASCII dendrogram *and* a JPEG dendrogram that uses hierarchical clustering to cluster the most similar accounts (see Module 12, slides 21, 23).  Include the JPEG in your report and upload the ASCII file to GitHub (it will be too unwieldy for inclusion in the report).
 
 *A: How well did the hierarchical clustering do in grouping similar accounts together?  Were there any particularly odd groupings?*
 
+## Answer
+
+The hierarchical clustering did somewhat an okay job in grouping similar accounts together. 
+
+```
+                -
+                  -
+                    AvrilLavigne
+                    -
+                      shakira
+                      selenagomez
+                  -
+                    -
+                      davidguetta
+                      -
+                        Oprah
+                        Pink
+                    -
+                      -
+                        Eminem
+                        -
+                          Cristiano
+                          KimKardashian
+                      -
+                        -
+                          pitbull
+                          -
+                            katyperry
+                            justinbieber
+                        -
+                          -
+                            aliciakeys
+                            Real_Liam_Payne
+                          -
+                            -
+                              KevinHart4real
+                              EmWatson
+                            -
+                              -
+                                SrBachchan
+                                -
+                                  onedirection
+                                  BillGates
+                              -
+                                iamsrk
+                                -
+                                  zaynmalik
+                                  -
+                                    aplusk
+                                    -
+                                      KingJames
+                                      LilTunechi
+    -
+      -
+        khloekardashian
+        -
+          BrunoMars
+          KAKA
+      -
+        kourtneykardash
+        -
+          Adele
+          NiallOfficial
+
+
+```
+
 ### Q4 - Cluster using k-Means (2 points)
 Cluster the accounts using k-Means, using `k`=5,10,20 (see Module 12, slide 34).  For each value of `k`, create a file that lists the accounts in each cluster and upload to your GitHub repo.  
+```
+kclust = kcluster(data, k=10)
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
+Iteration 20
+Iteration 21
+Iteration 22
+Iteration 23
+Iteration 24
+Iteration 25
+Iteration 26
+Iteration 27
+Iteration 28
+Iteration 29
+Iteration 30
+Iteration 31
+Iteration 32
+Iteration 33
+Iteration 34
+Iteration 35
+Iteration 36
+Iteration 37
+Iteration 38
+Iteration 39
+Iteration 40
+Iteration 41
+Iteration 42
+Iteration 43
+Iteration 44
+Iteration 45
+Iteration 46
+Iteration 47
+Iteration 48
+Iteration 49
+Iteration 50
+Iteration 51
+Iteration 52
+Iteration 53
+Iteration 54
+Iteration 55
+Iteration 56
+Iteration 57
+Iteration 58
+Iteration 59
+Iteration 60
+Iteration 61
+Iteration 62
+Iteration 63
+Iteration 64
+Iteration 65
+Iteration 66
+Iteration 67
+Iteration 68
+Iteration 69
+Iteration 70
+Iteration 71
+Iteration 72
+Iteration 73
+Iteration 74
+Iteration 75
+Iteration 76
+Iteration 77
+Iteration 78
+Iteration 79
+Iteration 80
+Iteration 81
+Iteration 82
+Iteration 83
+Iteration 84
+Iteration 85
+Iteration 86
+Iteration 87
+Iteration 88
+Iteration 89
+Iteration 90
+Iteration 91
+Iteration 92
+Iteration 93
+Iteration 94
+Iteration 95
+Iteration 96
+Iteration 97
+Iteration 98
+Iteration 99
+
+
+
+
+```
+## Answer
 
 *A: Give a brief explanation of how the k-Means algorithm operates on this data.  What features is the algorithm considering?*
 
+The k-Means algorithm from the python program takes in the data and the number of clusters that the user specifies and creates clusters of the data based on the number of clusters the user assigns. It works by finding the distinct groups or clusters of data that are closest together. Then it partitions the data into clusters based on distances of the data mean to that data point. 
+
 *B: How many iterations were required for each value of `k`?*
 
+The number of iterations vary by each value of k
+
 *C: Which `k` value created the most reasonable clusters?  For that grouping, characterize the accounts that were clustered into each group.*
+
+At k=10, the k-Means clustering algorithm created the most reasonable clusters. 
+
 
 ## Extra Credit
 <!--
