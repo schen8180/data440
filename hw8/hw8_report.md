@@ -329,6 +329,6 @@ Then re-do Q3 with the new matrix.  Compare and contrast the resulting dendrogra
 
 Note: Ideally you would not reuse the same 500 terms and instead would come up with TF-IDF scores for all the terms and then choose the top 500 from that list, but I'm trying to limit the amount of work necessary.
 -->
-## Submission
-
-Make sure that you have committed and pushed your local repo to your private GitHub repo (inside the `hw8` folder).  Your repo should include your report, images, code, and data you developed to answer the questions. Include "Ready to grade @anwala" in your final commit message. 
+## References 
+* How to Form Clusters in Python: Data Clustering Methods <https://builtin.com/data-science/data-clustering-python>
+* Guide to String Formatting in Python Using F-Strings <https://builtin.com/data-science/python-f-string>
