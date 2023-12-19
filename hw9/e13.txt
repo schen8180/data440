@@ -1,0 +1,49 @@
+Activity Digest since 1:37:18PM for DATA 303 on Piazza
+External
+Inbox
+
+
+Tue, Nov 7, 3:10 PM
+to me
+
+Your email preferences are currently set to a 4-hour Auto Digest, so you'll receive at most one email every 4 hours. You can customize your email preferences from your Account Settings page in the top right of your dashboard.
+
+Here's what has happened in DATA 303 on Piazza:
+
+nan values for the scatterplot in Part 3 11/7/2023, 1:37:18 PM
+
+Hi, I just have a simple question of Part 3.
+
+For the range of x and y, I tried super big and super small ones and found the maximum and minimum values of x and y. However, there is still a weird point in the upper-left corner of the scatterplot when starting animate it, do I need to drop the nan value variables?
+
+Thanks!
+
+
+
+Click here to view.
+
+Part 3 axis labels 11/7/2023, 1:33:39 PM
+
+For the x and y-axis labels in Part 3 of the Interacting with Data project, should we err on the side of including information, or keeping the labels succinct?
+
+For example, for the FI (food insecurity) feature, would the label "Individuals living in food-insecure households" be sufficient?
+
+Or should I just have a long label that includes all of the information, and have it be something like: "Individuals who self-reported living in households with severe or moderate food insecurity"?
+
+Or should the label simply be something like "Food Insecurity"?
+
+Thanks.
+
+
+
+Click here to view.
+
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 303 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.
+If you already have a Piazza account under another email address, link schen43@email.wm.edu to that account here.

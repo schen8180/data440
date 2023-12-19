@@ -1,0 +1,41 @@
+Q4 - Extra Credit
+External
+Inbox
+
+
+Tue, Nov 7, 6:29 PM
+to me
+
+Your classmate posted a new Question.
+
+Q4 - Extra Credit
+
+1) Use D3.js's force-directed graph layout to draw the Karate Club Graph before the split.
+
+2) Color the nodes according to the factions they belong to (John A or Mr. Hi).
+
+# 1 and 2 above aren't that difficult. d3 example at Observable shows how it can be done.
+
+3) After a button is clicked, split the graph based on the original graph split.
+
+I can show the connected graph on an HTML page, and show a button on that invokes a .js file but have been unable to have the .js file display the disconnected graph on the initial HTML page. 
+
+I can use the .js file to link to another HTML page where the disconnected graph will be displayed but I don't think that's what really being asked for. 
+
+
+
+Click here to view. Search or link to this question with @121. Follow it to get notified when a response comes in.
+
+Sign up for more classes at http://piazza.com/wm.
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 440-02 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.
+...
+
+[Message clipped]  View entire message

@@ -1,0 +1,37 @@
+topMatches function
+External
+Inbox
+
+
+Sun, Nov 26, 10:34 AM
+to me
+
+Your classmate posted a new Question.
+
+topMatches function
+
+Before starting, make sure that you understand what the functions topMatches() and getRecommendations() in the example code do.
+
+getRecommendations() is pretty straight forward. It returns movie recommendations for a particular user.
+
+topMatches() appears to return other users who have similar taste in movies. Correct? The default similarity formula used is the Pearson correlation coefficient. Pearson should range from -1.0 to 1.0 but some results had a value slightly greater than 1.0. Is this just a rounding issue?
+
+print(topMatches(preferences, '777', n=5))
+[(1.0000000000000018, '182'), (1.0000000000000002, '575'), (1.0, '909'), (1.0, '898'), (1.0, '861')]
+
+
+Click here to view. Search or link to this question with @143. Follow it to get notified when a response comes in.
+
+Sign up for more classes at http://piazza.com/wm.
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 440-02 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.
+...
+
+[Message clipped]  View entire message

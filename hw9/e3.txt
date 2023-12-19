@@ -1,0 +1,26 @@
+Tableau Visualizations not loading in HTML
+External
+Inbox
+
+
+Sun, Dec 3, 7:44 PM (11 days ago)
+to me
+
+Your classmate posted a new Question.
+
+Tableau Visualizations not loading in HTML
+
+I am using I frames in html to try and load a link to my visualization in tableau public, however where the visualizations should load in my website, it says: public.tableau.com refused to connect. Is there anyway to fix this, or should I use the embedded code instead of the link?
+
+Click here to view. Search or link to this question with @187. Follow it to get notified when a response comes in.
+
+Sign up for more classes at http://piazza.com/wm.
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 303 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.

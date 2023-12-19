@@ -1,0 +1,39 @@
+Notifications & Updates for You: Embeddings and Vector Databases With ChromaDB
+External
+Inbox
+
+
+Tue, Nov 7, 1:24 PM
+to me
+
+ 	
+
+Hi Sophia,
+
+Good news, there are new notifications & updates waiting for you in your Real Python account. Here’s what you may have missed:
+
+
+New Tutorial
+Embeddings and Vector Databases With ChromaDB
+
+Vector databases are a crucial component of many NLP applications. This tutorial will give you hands-on experience with ChromaDB, an open-source vector database that’s quickly gaining traction. Along the way, you’ll learn what’s needed to understand vector databases with practical examples.
+
+Read Now »
+ 
+ 
+New Video Course
+Python Basics Exercises: Numbers and Math
+
+In this Python Basics Exercises course, you’ll practice the math that you need for your Python programming journey. This includes integers and floating-point numbers, arithmetic operators, and string formatting for numbers.
+
+Watch Now »
+ 
+ 
+
+Happy Pythoning! Browse all notifications and updates waiting for you in your Real Python account by clicking the button below:
+
+See What’s New »
+Real Python emails you this summary when we haven't seen you in a while.
+Change your notification settings or unsubscribe.
+Real Python · #720-999 West Broadway, Vancouver BC V5Z 1K5, Canada
+ 

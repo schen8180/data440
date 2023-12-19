@@ -1,0 +1,172 @@
+Save Your Seat: Datapalooza This Friday Nov. 10
+External
+Inbox
+
+
+Wed, Nov 8, 9:30 AM
+to me
+
+View this email in your browser
+
+ 
+RSVP for Datapalooza 2023  
+
+It's not too late to save your seat for Datapalooza 2023. This year's conference looks to the future at data science education, data science in education and other disciplines, and the future of artificial intelligence in teaching, learning, and research. The Nov. 10 event kicks off the formal launch of UVA's Futures Initiative, a University leadership team challenged with preparing for future changes in higher education. The day's schedule also includes a fireside chat with University leadership, breakout sessions, and a panel presentation on UVA's recent generative AI report, outlining its impact on teaching and learning. 
+
+The one-day conference will take place on Friday, Nov. 10, in Newcomb Hall at the University of Virginia with events in the ballroom livestreamed. 
+
+Save Your Seat
+Program Agenda
+8:30 a.m.-4:00 p.m.
+Registration and Check-In | 3rd Floor Lobby
+
+
+8:30-9:00 a.m.
+Breakfast | Main Lounge
+
+
+9:00-9:15 a.m.
+Welcome by the Dean | Ballroom
+
+Phil Bourne, Dean, School of Data Science
+ 
+9:15-9:45 a.m.
+Formal Launch of the Futures Initiative at UVA  | Ballroom
+
+Over the next year, a group of thought leaders from across the University, known as the Futures Initiative Group, will examine the current drivers of change in academia, such as artificial intelligence and large language models, while also looking ahead to the eventual impact of sensor technology, virtual classrooms, the Internet of Things, and myriad other technological changes. Discussions will include town halls and podcasts, with guests expected to include futurists, business leaders, scientists, and college presidents. The goal of the initiative is to develop a series of recommendations, which will be delivered to University leadership, on how to chart a path forward so that UVA can be proactive, rather than reactive, to external events. 
+
+Phil Bourne, Dean, School of Data Science
+Ian Baucom, Provost, University of Virginia
+
+9:45-10:30 a.m.
+Futures Initiative Featured Speaker | Ballroom
+
+Scott Stephenson, Founder of SGS Capital and former Chairman, President, and CEO of Verisk Analytics
+
+10:30-10:45 a.m.
+Break
+ 
+
+10:45-11:45 a.m.
+Breakout 1: The Future of Data Science Education Panel | Ballroom 
+
+Data science instruction may evolve with advancements in technology and pedagogy, but the core learning outcomes will endure. Like our predecessors, our mission is the development of problem solvers who can think critically, collaborate effectively, communicate clearly, and understand the potential impacts of new technologies on our communities. Undoubtedly, the future will introduce new hardware, software, and algorithms that will reshape the field of data science and the landscape of data science education both residentially and online. This panel will delve into how the faculty at UVA's School of Data Science is actively working to craft a liberal arts curriculum suitable for the digital age, one that not only adapts to but embraces changes in technology and practice. The panel will discuss the future of data science education, including in K-12, the school’s guiding philosophy for its undergraduate and graduate programs (minor, B.S., online and residential M.S., Ph.D.), and the merits as well as challenges that arise when constructing a new educational curriculum for a new discipline. 
+
+Prince Afriyie, Program Director, M.S. in Data Science Residential
+Jon Kropko, Program Director, M.S. in Data Science Online
+Tom Stewart, Program Director, Ph.D. in Data Science
+Brian Wright, Program Director, B.S. in Data Science
+Jeffrey Blume, Associate Dean for Academic and Faculty Affairs in Data Science (moderator)
+
+Breakout 2: The Future of Data Science in Environment Talks | South Meeting Room
+
+In this session, experts will discuss how data science is shaping environmental efforts. They will cover how new tech, like AI, aids in environmental studies and improving human interaction with natural systems. The talks will highlight the importance of predictive analytics in understanding environmental trends and decision-making. We will have discussions on data ethics, management issues, and the need for global cooperation. Attendees will also learn about the significance of data literacy and training future environmental data experts. This session is ideal for anyone interested in using data to benefit the environment.
+
+"Physics-Guided Graph Neural Networks for Modeling River Networks" with Sheng Li, Associate Professor of Data Science 
+"Predicting Food Insecurity Across Africa from Environmental, Demographic, Economic, and Political Data" with Jade Preston, Doctoral Candidate in Data Science
+"AI Understanding of Environments for Large-Scale Urban Planning and Engineering with Nature" with Bill Basener, Professor of Data Science, and Michael Luegering, Assistant Professor of Landscape Architecture
+
+Breakout 3: The Technical Evolution of LLM Talks | Commonwealth Room
+
+Large language models, or LLMs, have emerged as powerful tools for many scientific domains. Tools such as ChatGPT have demonstrated impressive capabilities in generating coherent and contextually relevant responses to textual prompts. LLMs will have the potential for scientific hypothesis generation, as LLMs have the ability to analyze vast amounts of scientific literature, text and image data, and other sources to identify patterns and potential relationships between different scientific concepts. This can help scientists in different domains with new insights, connections, and predictions that can help guide further research and experimentation. However, current LLMs also have several critical problems, such as their tendency to hallucinate, their lack of interpretability, and their limitations in processing multimodal data. The talks in this session focus on a variety of issues pertaining to this emerging new technology. 
+
+"Model Editing: Keeping LLMs Up to Date Without Retraining"
+Tom Hartvigsen, Assistant Professor of Data Science
+"Large Language Models: Two Sides of One Story"
+Yangfeng Ji, Assistant Professor of Computer Science
+"Collaborative Large Language Model for Recommender Systems"
+Jundong Li, Assistant Professor of Electrical and Computer Engineering
+Aidong Zhang, Professor of Computer Science, Biomedical Engineering, and Data Science (moderator)
+ 
+
+11:45 a.m.-1:15 p.m.
+Lunch & Roundtable Discussions | Ballroom 
+ 
+
+12:00-12:45 p.m.
+Admissions Open House
+Register (on-site registration also available) 
+
+B.S. in Data Science and Minor in Data Science (for current UVA students) | South Meeting Room 
+M.S. in Data Science, Online and Residential | Commonwealth Room 
+Ph.D. in Data Science | Room 389
+ 
+
+12:45-1:15 p.m.
+Admissions Drop-In Advising
+
+B.S. in Data Science and Minor in Data Science (for current UVA students) | South Meeting Room 
+M.S. in Data Science, Online and Residential | Commonwealth Room 
+Ph.D. in Data Science | Room 389
+ 
+1:15-2:15 p.m.
+Breakout 1: The Future Impact of AI on Society Panel | Ballroom 
+
+Artificial intelligence has the potential to change our societies, economies, and political systems in both intentional and unintended ways. While it is difficult to understand the full extent of what the long-term impacts may be, we have enough shared knowledge and expertise to predict the likely shapes that these changes may take—both for better and for worse. More importantly, we should ask ourselves what kind of future we want AI to help us create: what we want from the future of AI should ultimately determine the future of AI. This panel will bring together experts to discuss the intersection of AI and society and offer suggestions for how AI might work within a just, inclusive, sustainable, and fair digital future. 
+
+Farhana Faruqe, Assistant Professor of Data Science
+Sarah Lebovitz, Assistant Professor of Commerce
+Larry Medsker, Research Professor, George Washington University 
+Mar Hicks, Associate Professor of Data Science (moderator)
+Breakout 2: The Future of Data Science In Health Talks | South Meeting Room
+
+This session explores the dynamic landscape of data science in health care. Topics encompass the future of personalized medicine through data-driven approaches to revolutionize health care delivery. Attendees will gain insights into how data science is reshaping health care, leading to more precise and personalized medical solutions.
+
+"Learning From Data in Complex and Heterogeneous Biological Systems"
+Heman Shakeri, Assistant Professor of Data Science 
+"Towards Sensing and Personalized Intervention for Mental Health"
+Laura Barnes, Professor of Systems and Information Engineering
+"Bridging the Gap in Pediatric Heart Transplants with Data Science"
+Michael D. Porter, Associate Professor of Systems Engineering and Data Science
+Breakout 3: The Future of Data Science in Business Panel | Commonwealth Room
+
+In business, data science innovations meet vexing problems that have valuable solutions. Throw in cutting-edge technology, abundant and accessible data, and limitless resources, and we have fertile conditions for the genesis of game and, potentially, life-changing advances such as we have witnessed recently with the emergence of generative AI. But the most active ingredient in this mix—people—is one of the hardest to prepare. Equipping future employees and leaders to cope with and capitalize on the dizzying progress is a challenge that we must tackle now if we are to sustain or accelerate the impact of data science in the future of business. This session will explore trends in data science innovation that will be most impactful in business over the next decade and, as a result, what businesses need from the next generation of data science talent and the institutions, like UVA, that train them. 
+
+Peter Alonzi, Assistant Professor of Data Science
+Hamit Hamutcu, Senior Advisor, Institute for Experiential AI at Northeastern University
+Heidi Lanford, former Chief Data Officer, Fitch Group
+Ian O'Keefe, HR Venture Advisor, SemperVirens Venture Capital 
+Terence Johnson, Assistant Professor of Data Science
+Marc Ruggiano, Inaugural Director, UVA Darden-School of Data Science Collaboratory for Applied Data Science (moderator)
+ 
+
+2:15-2:30 p.m.
+Break
+
+
+2:30-3:30 p.m.
+Generative AI in Teaching and Learning | Ballroom
+
+The Generative AI in Teaching and Learning task force was formed in March 2023 to examine the implications of this technology for teaching and learning at UVA. The task force comprised six faculty members with expertise in artificial intelligence, pedagogy, and the intersection of those fields; it also included the chair of the Honor Committee. Between March and May of 2023, the task force engaged with approximately 300 faculty across six town halls and gathered survey responses from 504 students and 181 faculty. The task force also consulted external resources to learn more about the risks posed by this technology and its potential benefits, and examined how our peer institutions are responding to the rapid emergence and widespread availability of generative AI tools. This session features members of the task force, with the discussion moderated by its executive sponsor. The panel will engage in dialogue about the report, the ongoing conversation related to generative AI and its impact on teaching and learning since the report's release, and moving into the future.
+
+Briana Morrison, Associate Professor of Computer Science
+Reza Mousavi, Assistant Professor of Commerce
+Andy Pennock, Associate Professor of Public Policy 
+Brie Gertler, Vice Provost for Academic Affairs and Professor of Philosophy (moderator)
+ 
+3:30-4:00 p.m.
+Reflection and Closing Remarks | Ballroom
+
+Phil Bourne, Dean, School of Data Science (moderator)
+ 
+4:00-5:00 p.m.
+Closing Reception | South Meeting Room
+ 
+
+RSVP
+
+Facebook
+Twitter
+Website
+Instagram
+
+
+
+
+
+
+This email was sent to schen43@email.wm.edu
+why did I get this?    unsubscribe from this list    update subscription preferences
+UVA School of Data Science · 31 Bonnycastle · Dell 1 Building · Charlottesville, VA 22904-2001 · USA
+
+

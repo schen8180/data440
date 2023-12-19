@@ -1,0 +1,30 @@
+[Instr Note] Making your page appear: the biggest issue so far
+External
+Inbox
+
+
+Wed, Nov 8, 11:39 AM
+to me
+
+Instructor Dana Willner posted a new Note.
+
+Making your page appear: the biggest issue so far
+
+Your html page MUST be called: index.html
+
+If it isn't, you won't see anything on the Github link it gives you for the page
+
+
+
+Click here to view. Search or link to this question with @146.
+
+Sign up for more classes at http://piazza.com/wm.
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 303 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.

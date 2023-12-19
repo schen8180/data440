@@ -1,0 +1,53 @@
+hw9 part2
+External
+Inbox
+
+
+3:26 PM (4 hours ago)
+to me
+
+Your classmate posted a new Question.
+
+hw9 part2
+
+I have been running this to try and test my naive bayes classifier: 
+
+text = open("/content/drive/MyDrive/web_science/email_data/emails_in/email_in11.txt", "r").read()
+
+cl.classify(text, default='unkown')
+and am receiving the following error: 
+UnboundLocalError                         Traceback (most recent call last)
+
+
+<ipython-input-34-34b71756930d> in <cell line: 2>()
+      1 text = open("/content/drive/MyDrive/web_science/email_data/emails_in/email_in11.txt", "r").read()
+----> 2 cl.classify(text, default='unkown')
+
+
+<ipython-input-20-4a7451936d3f> in classify(self, item, default)
+     37     # Make sure the probability exceeds threshold*next best
+     38     for cat in probs:
+---> 39       if cat==best: continue
+     40       if probs[cat]*self.getthreshold(best)>probs[best]: return default
+     41     return best
+
+
+
+UnboundLocalError: local variable 'best' referenced before assignment
+
+
+Click here to view. Search or link to this question with @180. Follow it to get notified when a response comes in.
+
+Sign up for more classes at http://piazza.com/wm.
+
+
+Thanks,
+The Piazza Team
+--
+Contact us at team@piazza.com
+
+
+You're receiving this email because schen43@email.wm.edu is enrolled in DATA 440-02 at College of William and Mary. Click here to unsubscribe from digest emails. Or, sign in to manage your email preferences or un-enroll from this class.
+...
+
+[Message clipped]  View entire message
