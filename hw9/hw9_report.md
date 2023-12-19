@@ -36,7 +36,7 @@ The **Testing** dataset should consist of:
 
 ## Answer
 
-I decided to do my topic on distinguishing my college's emails from non-college ones, such as categorizing the groups to be the ones related to William and Mary and non-related to the school. 
+I decided to do my topic on distinguishing my college's emails from non-college ones, such as categorizing the groups to be the ones related to William and Mary and non-related to the school. The files that are named with just 'e' are the relevant emails and the files that are named 'en' are irrelevant emails. The first twenty are the training sets and the last five are the testing datasets. 
 
 ## Discussion
 
