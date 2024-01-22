@@ -17,18 +17,15 @@ Consider creating a bot to solve or partly solve a problem you care about --- ma
 
 ## Answer + Discussion
 
-For this assignment, I created a Twitter bot that posts tweets about the weather in Norfolk, VA, and gives mental health advice according to that criteria. For example, depending on the weather outside, whether sunny, windy, cold, hot, etc., it would recommend what the best actions to take are. This will be primarily useful for people who suffer from mental health illnesses, such as seasonal depression disorder, major depressive disorder, or ADHD. There are many more mental disorders, and this list presents a few examples of common mental disorders in our community. 
-I also added another feature to it that can provide you with some example activities that you can do when you can't come up with things to do. 
+For this assignment, I created a Twitter bot that posts tweets about the weather in Norfolk, VA and gives mental health advice according to that criteria. For example, it is recommended to take the best actions depending on the weather outside, whether sunny, windy, cold, hot, etc. This will be primarily useful for people who suffer from mental health illnesses, such as seasonal depression disorder, major depressive disorder, or ADHD. There are many more mental disorders, and this list presents a few examples of common mental disorders in our community. I also added another feature to it that can provide you with some example activities that you can do when you can't come up with things to do.
 
-This bot is helpful, especially for people who suffer from seasonal depression or other mental health disorders, as this can give advice when these individuals lack the motivation to engage in activities during bad weather conditions. In addition, these tweets are created in a way that offers thorough advice or allows the audience to reflect on positive thoughts during nice weather. The goal here is to promote happiness and good feelings. 
+This bot is helpful, especially for people who suffer from seasonal depression or other mental health disorders, as this can give advice when these individuals lack the motivation to engage in activities during bad weather conditions. In addition, these tweets are created in a way that offers thorough advice or allows the audience to reflect on positive thoughts during nice weather. The goal here is to promote happiness and good feelings.
 
-
-When implemented, this bot is supposed to tweet every 8-10 hours, reflecting on the daily change in weather conditions. It considers the times when people feel productive, offline, or resting. Since many people do not follow a traditional work shift, this bot also accommodates those who fall into this category by posting at diverse times. 
+When implemented, this bot is supposed to tweet every 8-10 hours, reflecting on the daily change in weather conditions. It considers the times when people feel productive, offline, or resting. Since many people do not follow a traditional work shift, this bot also accommodates those who fall into this category by posting at diverse times.
 
 I initially made this bot tweet every 4 hours to check for its functionality.
 
 An example is this tweet: 
-
 
 sophia
 @sophiac6170
@@ -41,11 +38,9 @@ By asking the question at the end of the tweet, the audience can think about the
 In contrast, when the weather is not at its greatest condition outside, my twitter bot will tweet a message that warns the audience about the bad conditions and advise them to take the necessary pre-cautions to be safe outside. Since bad weather are rare these days, the bot has not recieved the oppounity to post messages to help the audience when there is rain, snow, fog, etc. 
 
 
-
- Another useful property in which the twitter bot can be useful is its ability to post example activities when the audience have hard times thinking about what to do. Example activities include writing a short story, learning on how to play a new card game, learning sports, etc. 
+Another useful property in which the twitter bot can be useful is its ability to post example activities when the audience have hard times thinking about what to do. Example activities include writing a short story, learning on how to play a new card game, learning sports, etc. 
 
 An example is this tweet: 
-
 
 sophia
 @sophiac6170 · 9m
@@ -155,9 +150,7 @@ while True:
 
 
 ```
-In addition, I copied all of this to a py file called twitterbot.py and imported its functions to use in another file called post.py. This file contains parts of the provided code used to scrape Twitter, such as the scrape_twitter1 file provided by Professor Nwala. The post.py file is where all of the functions are gathered and used for execution. 
-
-
+In addition, I copied all of this to a .py file called twitterbot.py and imported its functions to use in another file called post.py. This file contains parts of the provided code used to scrape Twitter, such as the scrape_twitter1 file provided by Professor Nwala. The post.py file is where all of the functions are gathered and used for execution. 
 
 
 # Criteria 2. Originality/Innovation (4 points)
@@ -167,11 +160,11 @@ Express yourself, be creative. Alternatively, consider improving a pre-existing 
 ## Answer + Discussion
 
 
-My Twitter bot is helpful because it incorporates creative ideas of combining topics of mental health and data science to impact our community positively. 
+My Twitter bot is helpful because it incorporates creative ideas of combining topics of mental health and data science to assist our community positively. 
 
 In this case, programming a type of data science software that helps people with mental disabilities will be extremely useful in the mental health community. 
 
-The reason why I say this is because, at first, while looking for inspiration to create my bot, I could not find many bots that post mental health advice, especially for members of the community who suffer from ADHD and depression in Norfolk, Va. Thus, I created a bot that addresses this issue. 
+The reason why I say this is because, at first, while looking for inspiration to create my bot, I could not find many bots that post mental health advice, especially for members of the community who suffer from ADHD and depression in Norfolk, Va. Thus, I created a bot that addresses this issue. It will post periodically based on the weather conditions outside and advise its followers on what to do next. 
 
 I can improve this further by designing more features that can enhance the impact the bot can bring. For example, I was thinking about creating a part that posts about the temperature of the weather. If the temperature of the weather is low, then I will make this bot post and inform the audience about the weather and how to take the necessary actions to protect themselves from this. I have written an essential function to carry out this task, but I plan to expand it further. 
 
